@@ -17,7 +17,7 @@ see a, b or both end up with the value 1, because both threads always set the ot
 variable before the other thread reads it. However if we repeat this until we observe 
 that ```a == 0 && b == 0```, it always happens eventually.
 
-This outcome is only possible if both threads had their write performed after the read.
+This outcome is only possible if both threads had their write (x/y = 1) performed after the read (a/b = y/x).
 The reordering can be done by the compiler, CPU, or even both which makes this reproducible
 in any language that supports starting either real or green threads.
 
